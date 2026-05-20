@@ -1,0 +1,20 @@
+{
+	"name": "dive-into-relay-claw",
+	"version": "0.1.0",
+	"description": "深入浅出 relay-claw 开源项目",
+	"author": "kagol",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kagol/dive-into-relay-claw.git"
+	},
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.17"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  }
+}
