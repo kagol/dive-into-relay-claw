@@ -8,8 +8,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '使用指南', link: '/usage' },
-      { text: '原理解析', link: '/tech' }
+      { text: '使用指南', link: '/usage', activeMatch: '/usage/' },
+      { text: '原理解析', link: '/tech', activeMatch: '/tech/' }
     ],
 
     sidebar: {
@@ -25,7 +25,7 @@ export default defineConfig({
         {
           text: '原理解析',
           items: [
-            { text: '对话整体流程', link: '/tech/chat/overview' }
+            { text: '对话整体流程', link: '/tech/chat' }
           ]
         }
       ]

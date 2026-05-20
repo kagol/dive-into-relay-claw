@@ -1,5 +1,4 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
@@ -14,11 +13,16 @@ hero:
       link: /tech
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 技能系统
+    details: 按需加载技能包（TDD、调试、审查等）
+  - title: 通道系统
+    details: Web、小艺、飞书等多平台接入
+  - title: 记忆系统
+    details: 会话记忆、长期记忆、跨会话知识持久化
+  - title: 浏览器自动化
+    details: 自动化 Web 操作，扩展 Agent 能力边界
+  - title: 任务规划
+    details: 拆解复杂任务，自动编排执行步骤
+  - title: 定时任务
+    details: 支持 cron 定时触发，自动执行计划任务
 ---
-
