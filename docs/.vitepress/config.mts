@@ -23,9 +23,11 @@ export default defineConfig({
       ],
       '/tech/': [
         {
-          text: '原理解析',
+          text: '对话',
           items: [
-            { text: '对话整体流程', link: '/tech/chat' }
+            { text: '整体流程', link: '/tech/chat/overview' },
+            { text: '组件树', link: '/tech/chat/component-tree' },
+            { text: '数据流', link: '/tech/chat/data-flow' }
           ]
         }
       ]
