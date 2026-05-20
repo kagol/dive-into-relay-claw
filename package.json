@@ -1,14 +1,21 @@
 {
-	"name": "dive-into-relay-claw",
-	"version": "0.1.0",
-	"description": "深入浅出 relay-claw 开源项目",
-	"author": "kagol",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/kagol/dive-into-relay-claw.git"
-	},
+  "name": "dive-into-relay-claw",
+  "version": "0.1.0",
+  "description": "深入浅出 relay-claw 开源项目",
+  "author": "kagol",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kagol/dive-into-relay-claw.git"
+  },
   "devDependencies": {
+    "@braintree/sanitize-url": "^7.1.2",
+    "@unify-js/vitepress-mermaid": "^1.0.2",
+    "cytoscape": "^3.33.4",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "dayjs": "^1.11.20",
+    "debug": "^4.4.3",
+    "mermaid": "^11.15.0",
     "vitepress": "2.0.0-alpha.17"
   },
   "packageManager": "pnpm@10.33.0",

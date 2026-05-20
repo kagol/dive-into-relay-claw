@@ -72,11 +72,11 @@ ChatContainer
 └── PptStudioBackgroundSync
 ```
 
-## 完整组件树（Mermaid 图）
+## ChatContainer 组件树（第一层）
 
 ```mermaid
-graph TD
-    CC[ChatContainer] --> CCH[ChatContainerHeader]
+flowchart LR
+    CC((ChatContainer)) --> CCH[ChatContainerHeader]
     CC --> CES[ChatEmptyState]
     CC --> TEB[ThreadExecutionBar]
     CC --> PSI[ThinkingIndicator]
@@ -93,18 +93,24 @@ graph TD
     CC --> PPS[PptPreviewSecondaryPane]
     CC --> PBS[PptStudioBackgroundSync]
 
-    %% ChatContainerHeader
-    CCH --> HB[HubButton]
+    classDef core fill:#ff9,stroke:#333,stroke-width:2px
+    classDef important fill:#9f9,stroke:#333,stroke-width:1px
+    class CC core
+    class CM,CI important
+```
 
-    %% ChatMessage (核心消息气泡)
-    CM --> AA[AgentAvatar]
-    CM --> COB[CliOutputBlock]
-    CM --> COBA[CliOutputBlockAttachments]
-    CM --> MC[MarkdownContent ⭐]
-    CM --> RB[RichBlocks]
+## ChatMessage 组件树（chat-message）
+
+```mermaid
+flowchart LR
+    CM((ChatMessage ⭐)) --> AA[AgentAvatar]
     CM --> TGSB[TaskGroupedStreamBody ⭐]
     CM --> TC[ThinkingContent]
+    CM --> MC[MarkdownContent ⭐]
+    CM --> COB[CliOutputBlock]
+    CM --> COBA[CliOutputBlockAttachments]
     CM --> CB[ContentBlocks]
+    CM --> RB[RichBlocks]
     CM --> ConB[ConnectorBubble]
     CM --> DP[DirectionPill]
     CM --> EP[EvidencePanel]
@@ -113,24 +119,19 @@ graph TD
     CM --> SC[SummaryCard]
     CM --> TDP[TimeoutDiagnosticsPanel]
 
-    %% TaskGroupedStreamBody (任务分组流式渲染)
     TGSB --> TC2[ThinkingContent]
     TGSB --> MC2[MarkdownContent]
     TGSB --> COB2[CliOutputBlock]
 
-    %% ThinkingContent
     TC --> MC3[MarkdownContent]
     TC --> LPS[LoadingPointStyle]
 
-    %% ContentBlocks
     CB --> MC4[MarkdownContent]
     CB --> LB[Lightbox]
 
-    %% ConnectorBubble
     ConB --> MC5[MarkdownContent]
     ConB --> RB2[RichBlocks]
 
-    %% RichBlocks (富内容块)
     RB --> AB[AudioBlock]
     RB --> CaB[CardBlock]
     RB --> ClB[ChecklistBlock]
@@ -141,17 +142,32 @@ graph TD
     RB --> IBG[InteractiveBlockGroup]
     RB --> MGB[MediaGalleryBlock]
 
-    %% CliOutputBlock
-    COB --> COTR[CliOutputToolRow]
-    COB --> COTS[CliOutputToolsSection]
-    COB --> COTH[CliOutputToggleHeader]
-    COB --> LGFC[LocalGeneratedFileCard]
+    MC --> RM[react-markdown]
+    MC --> RGFM[remark-gfm]
+    MC --> RBK[remark-breaks]
 
-    %% ChatInput (输入框)
-    CI --> CIL[ChatInputLayout]
+    EP --> EC[EvidenceCard]
+
+    IRP --> AA3[AgentAvatar]
+    IRP --> LPS2[LoadingPointStyle]
+
+    SC --> AA4[AgentAvatar]
+
+    classDef core fill:#ff9,stroke:#333,stroke-width:2px
+    classDef important fill:#9f9,stroke:#333,stroke-width:1px
+    classDef leaf fill:#ddd,stroke:#999,stroke-width:1px
+    class CM core
+    class TGSB,MC important
+    class AA,LPS,RM,RGFM,RBK leaf
+```
+
+## ChatInput 组件树（chat-input）
+
+```mermaid
+flowchart LR
+    CI((ChatInput ⭐)) --> CIL[ChatInputLayout]
     CI --> RTE[RichTextarea]
 
-    %% ChatInputLayout
     CIL --> CIBL[ChatInputBottomLeft]
     CIL --> CIBR[ChatInputBottomRight]
     CIL --> CDUO[ChatDragUploadOverlay]
@@ -165,68 +181,32 @@ graph TD
     CIL --> TP[TemplatePicker]
     CIL --> SMP[SkillMenuPanel]
 
-    %% ChatInputMenus
     CIM --> SMP2[SkillMenuPanel]
     CIM --> QAP2[QuickActionsPanel]
 
-    %% MessageActions
-    MA --> CD[ConfirmDialog]
-    MA --> MFA[MessageFeedbackActions]
-    MA --> MCB[MessageCopyButton]
+    classDef core fill:#ff9,stroke:#333,stroke-width:2px
+    classDef important fill:#9f9,stroke:#333,stroke-width:1px
+    class CI core
+    class CIL important
+```
 
-    %% ConfirmDialog
-    CD --> Btn[Button]
-    CD --> IB2[IconButton]
+## CliOutput 组件树（cli-output）
 
-    %% AskUserQuestionCard
-    AQC --> Btn2[Button]
+```mermaid
+graph TD
+    CO[cli-output] --> COB[CliOutputBlock]
+    CO --> COBA[CliOutputBlockAttachments]
 
-    %% AuthorizationCard
-    AC --> Btn3[Button]
-
-    %% SplitPaneView
-    SPV --> CI2[ChatInput]
-    SPV --> MTS[MiniThreadSidebar]
-    SPV --> SPC[SplitPaneCell]
-
-    %% SplitPaneCell
-    SPC --> AA2[AgentAvatar]
-
-    %% SecurityManagementModal
-    SMM --> AM[AppModal]
-    SMM --> CLS[CenteredLoadingState]
-    SMM --> NSRS[NoSearchResultsState]
-    SMM --> SI[SearchInput]
-    SMM --> TS[ToggleSwitch]
-
-    %% MarkdownContent (叶子 - react-markdown)
-    MC --> RM["react-markdown"]
-    MC --> RGFM["remark-gfm"]
-    MC --> RB2_"remark-breaks"
-
-    %% EvidencePanel
-    EP --> EC[EvidenceCard]
-
-    %% IntentRecognitionPlaceholder
-    IRP --> AA3[AgentAvatar]
-    IRP --> LPS2[LoadingPointStyle]
-
-    %% SummaryCard
-    SC --> AA4[AgentAvatar]
-
-    %% ParallelStatusBar
-    PSB --> SH["status-helpers"]
-
-    %% ThreadExecutionBar
-    TEB --> ASSC["AgentStreamStatusChip"]
+    COB --> COTR[CliOutputToolRow]
+    COB --> COTS[CliOutputToolsSection]
+    COB --> COTH[CliOutputToggleHeader]
+    COB --> LGFC[LocalGeneratedFileCard]
 
     classDef core fill:#ff9,stroke:#333,stroke-width:2px;
     classDef important fill:#9f9,stroke:#333,stroke-width:1px;
-    classDef leaf fill:#ddd,stroke:#999,stroke-width:1px;
 
-    class CC core;
-    class CM,CI,MC,TGSB important;
-    class AA,LPS,Btn,IB2,RM,RGFM leaf;
+    class CO,COB core;
+    class COBA important;
 ```
 
 ## 分层说明
