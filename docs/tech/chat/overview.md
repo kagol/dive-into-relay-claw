@@ -140,11 +140,13 @@
 
 ### 6.1 ChatContainer 渲染循环
 
+```
 ChatContainer
   ├── ThreadExecutionBar (执行状态条)
   ├── messages.map(msg => `<ChatMessage message={msg} />`)
   ├── ThinkingIndicator (思考中指示器)
   └── ChatInput (输入框)
+```
 
 ### 6.2 ChatMessage 渲染逻辑
 
@@ -154,6 +156,7 @@ ChatContainer
 2. 判断是否显示任务分组：showTaskGrouped = taskRuns?.v === 1 && segments.length > 0
 3. 渲染分支：
 
+```
 ChatMessage (assistant)
   ├── showTaskGrouped === true ?
   │ ├── `<TaskGroupedStreamBody>` ← 任务列表（思考执行过程）
@@ -164,6 +167,7 @@ ChatMessage (assistant)
       ├── `<ThinkingContent>` ← 思考过程（旧模式）
       ├── `<CliOutputBlock>` ← 工具调用展示
       └── `<MarkdownContent>` ← AI 正文内容
+```
 
 ### 6.3 TaskGroupedStreamBody 渲染（任务列表）
 

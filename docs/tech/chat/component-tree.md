@@ -1,14 +1,14 @@
 # 对话组件树
 
-- ChatContainer.tsx -- 使用了 ChatInput，在已有对话里继续对话时走这里的逻辑
-- HomePage.tsx -- 使用了 ChatInput，新对话时走这里的逻辑
-- chat-message -- 消息气泡
-- chat-input -- 聊天输入框
-- cli-output -- 工具调用
+核心组件：
 
-## 组件依赖树（使用 React DevTools 查看）
-
-![](/images/chat/对话组件树.png)
+- ChatContainer.tsx -- 使用 ChatInput，在已有对话里继续对话时走这里的逻辑
+- HomePage.tsx -- 使用 ChatInput，新对话时走这里的逻辑
+- ChatMessage -- 单条消息气泡
+- ChatInput -- 聊天输入框
+- CliOutput -- 工具调用
+- MarkdownContent -- 回答正文
+- TaskGroupedStreamBody -- 任务列表
 
 ## ChatContainer 组件依赖树（核心视图）
 
@@ -331,3 +331,5 @@ graph TD
 | **inputHistoryStore** | 输入历史 |
 | **toastStore** | Toast 通知 |
 | **authorizationPendingStore** | 待审批授权 |
+
+本文写于：2026年5月21日
