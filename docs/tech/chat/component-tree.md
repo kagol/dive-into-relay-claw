@@ -10,7 +10,7 @@
 - MarkdownContent -- 回答正文
 - TaskGroupedStreamBody -- 任务列表
 
-## ChatContainer 组件依赖树（核心视图）
+## 一、ChatContainer 组件依赖树（核心视图）
 
 ```
 ChatContainer
@@ -72,7 +72,7 @@ ChatContainer
 └── PptStudioBackgroundSync
 ```
 
-## ChatContainer 组件树（第一层）
+## 二、ChatContainer 组件树（第一层）
 
 ```mermaid
 flowchart LR
@@ -99,7 +99,7 @@ flowchart LR
     class CM,CI important
 ```
 
-## ChatMessage 组件树（chat-message）
+## 三、ChatMessage 组件树（chat-message）
 
 ```mermaid
 flowchart LR
@@ -161,7 +161,7 @@ flowchart LR
     class AA,LPS,RM,RGFM,RBK leaf
 ```
 
-## ChatInput 组件树（chat-input）
+## 四、ChatInput 组件树（chat-input）
 
 ```mermaid
 flowchart LR
@@ -190,7 +190,7 @@ flowchart LR
     class CIL important
 ```
 
-## CliOutput 组件树（cli-output）
+## 五、CliOutput 组件树（cli-output）
 
 ```mermaid
 graph TD
@@ -209,7 +209,7 @@ graph TD
     class COBA important;
 ```
 
-## 分层说明
+## 六、分层说明
 
 ### 第 1 层：ChatContainer 直接子组件
 
@@ -305,7 +305,7 @@ graph TD
 | **CliOutputToolRowLabel** | 工具行标签 |
 | **CliOutputFileCardActionsMenu** | 文件卡片操作菜单 |
 
-## Hooks 依赖（ChatContainer 使用的核心 Hooks）
+## 七、Hooks 依赖（ChatContainer 使用的核心 Hooks）
 
 | Hook | 职责 |
 |---|---|
@@ -322,7 +322,7 @@ graph TD
 | **useVoiceAutoPlay** | 语音自动播放 |
 | **useVoiceStream** | 语音流 |
 
-## Stores 依赖
+## 八、Stores 依赖
 
 | Store | 职责 |
 |---|---|

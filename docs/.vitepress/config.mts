@@ -32,9 +32,9 @@ export default defineConfig({
     sidebar: {
       '/usage/': [
         {
-          text: '使用指南',
+          text: '入门',
           items: [
-            { text: '概览', link: '/usage' }
+            { text: '快速开始', link: '/usage/quick-start' }
           ]
         }
       ],
