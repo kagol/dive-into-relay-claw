@@ -46,7 +46,7 @@ export default defineConfig({
             { text: '组件树', link: '/tech/chat/component-tree' },
             { text: '数据流', link: '/tech/chat/data-flow' },
             { text: '乐观 UI', link: '/tech/chat/optimistic-ui' },
-            { text: '双指针守卫', link: '/tech/chat/double-pointer-guard' }
+            { text: '双指针守卫', link: '/tech/chat/dual-pointer-guard' }
           ]
         }
       ]
