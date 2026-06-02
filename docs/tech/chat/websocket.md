@@ -2,6 +2,8 @@
 
 WebSocket 流式消息时对话最重要的数据来源。
 
+> WebSocket 流式消息可以通过 Chrome DevTools 中的 Network 面板进行查看。
+
 ## 创建 WebSocket 连接
 
 ### useSocket 创建 socket.io 连接
@@ -370,6 +372,44 @@ OfficeClaw 里实际有两层，容易在抓包里看到两个 UUID：
 
 场景： 连接管理、ping/pong、DevTools 看 WS；业务开发一般不用拿 sid 做逻辑。
 
+## 完整的 WebSocket 消息结构
+
+后端主要通过 Socket.IO 的 agent_message 事件给前端推送消息：
+
+```
+42["agent_message", {
+  "type": "text|system_info|tool_use|tool_result|error|done|session_init|...",
+  "agentId": "office",
+  "threadId": "thread_xxx",
+  "content": "...",
+  "sessionId": "...",
+  "toolName": "...",
+  "toolInput": {...},
+  "toolCallId": "...",
+  "error": "...",
+  "errorCode": "...",
+  "isFinal": true,
+  "metadata": { "provider":"...", "model":"...", "sessionId":"...", "usage": {...} },
+  "origin": "stream|callback",
+  "invocationId": "...",
+  "timestamp": 1780...,
+  "taskContext": { "id":"...", "title":"...", "index":1, "total":3 },
+  "taskPhase": "start|complete",
+  "stream_source_id": "main"
+}]
+```
+
+除 agent_message 外，前端还监听：
+
+- intent_mode
+- thread_created / thread_updated
+- queue_updated / queue_paused / queue_full_warning
+- authorization:*
+- ask_user_question:*
+- message_deleted / message_restored
+- voice_stream_*
+- 等等
+
 ## 附录：部分 WebSocket 消息
 
 WebSocket 初始消息和发送“你好”之后的消息。
@@ -577,3 +617,5 @@ WebSocket 初始消息和发送“你好”之后的消息。
           ...
 ]
 ```
+
+本文写于：2026年6月2日
