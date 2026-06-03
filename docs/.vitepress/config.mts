@@ -42,16 +42,39 @@ export default defineConfig({
         {
           text: '对话',
           items: [
-            { text: '整体流程', link: '/tech/chat/overview' },
-            { text: '组件树', link: '/tech/chat/component-tree' },
-            { text: '数据流', link: '/tech/chat/data-flow' },
-            { text: 'WebSocket 流', link: '/tech/chat/websocket' },
-            { text: 'Zustand 全局内存数据', link: '/tech/chat/zustand' },
-            { text: 'Redis 持久化数据', link: '/tech/chat/redis' },
-            { text: '对话 UI 渲染', link: '/tech/chat/ui-render' },
-            { text: '按任务分组', link: '/tech/chat/task' },
-            { text: '乐观 UI 策略', link: '/tech/chat/optimistic-ui' },
-            { text: '双指针守卫', link: '/tech/chat/dual-pointer-guard' }
+            {
+              text: '概览',
+              items: [
+                { text: '整体流程', link: '/tech/chat/overview' },
+                { text: '组件树', link: '/tech/chat/component-tree' },
+                { text: '数据流', link: '/tech/chat/data-flow' },
+              ]
+            },
+            {
+              text: '数据',
+              items: [
+                { text: 'WebSocket 流', link: '/tech/chat/websocket' },
+                { text: 'Zustand 全局内存数据', link: '/tech/chat/zustand' },
+                { text: 'Redis 持久化数据', link: '/tech/chat/redis' },
+                { text: 'WebSocket 消息数据存储分析', link: '/tech/chat/ws-message-store-analysis' },
+              ]
+            },
+            {
+              text: '策略',
+              items: [
+                { text: '对话 UI 渲染', link: '/tech/chat/ui-render' },
+                { text: '按任务分组', link: '/tech/chat/task' },
+                { text: '乐观 UI 策略', link: '/tech/chat/optimistic-ui' },
+                { text: '双指针守卫策略', link: '/tech/chat/dual-pointer-guard' },
+              ]
+            },
+            {
+              text: '其他',
+              items: [
+                { text: '应用启动和初始化流程', link: '/tech/chat/initiation' },
+                { text: '九问推送 WebSocket 流式消息流程', link: '/tech/chat/jiuwenclaw-ws-push-analysis.md' }
+              ]
+            },
           ]
         }
       ]
