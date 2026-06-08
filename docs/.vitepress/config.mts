@@ -66,6 +66,7 @@ export default defineConfig({
                 { text: '按任务分组', link: '/tech/chat/task' },
                 { text: '乐观 UI 策略', link: '/tech/chat/optimistic-ui' },
                 { text: '双指针守卫策略', link: '/tech/chat/dual-pointer-guard' },
+                { text: '多线程并发流式输出隔离机制', link: '/tech/chat/multi-thread-streaming-isolation' },
               ]
             },
             {
